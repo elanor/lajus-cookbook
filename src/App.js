@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { StrictMode } from 'react';
 import logo from './logo.svg';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, Link, Routes, BrowserRouter } from 'react-router-dom';
 import RecipeItem from './RecipeItem';
 import './App.css';
+import RecipeList from './RecipeList';
 
 function App() {
   return (
@@ -19,26 +20,29 @@ function App() {
         </div>
 
       </header>
-      <Router>
+      
         <main>
             <div className="container">
-                <Link to="/recipe/1" className="tile" id="tile-1">
-                    <h2>Meal name</h2>
-                    <p>Краткое описание.</p>
-                  </Link>
+            
+              <BrowserRouter>
+              
+
                 
-                <Link to="/recipe/2" className="tile" id="tile-2">
-                    <h2>Meal name</h2>
-                    <p> Краткое описание.</p>
-                </Link>
-                
+      
+                 <Routes>
+                  <Route path="/recipe/:id" element={<RecipeItem />} />
+                  <Route path="/" element={<RecipeList />} />
+                </Routes>
+      
+                </BrowserRouter>          
+              
             </div>
         </main>
-      </Router>
       
-      <Switch>
-        <Route path="/recipe/:id" children={<RecipeItem />} />
-      </Switch>
+     
+      {/* <Switch>
+        
+      </Switch> */}
 
       <footer>
           <p>Marina Lajus © 2024</p>

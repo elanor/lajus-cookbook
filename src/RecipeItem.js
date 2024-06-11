@@ -1,28 +1,29 @@
-
-
-// import React from 'react';
-// import { useParams } from 'react-router-dom';
-
-// const RecipeItem = () => {
-//     let { id } = useParams(); // Get the id from the URL
-
-//     // You can fetch data based on the `id` or use it to decide what to display
-//     return (
-//         <div>
-//             <h1>Recipe Details for ID: {id}</h1>
-//             <p>Here are the details for the recipe with ID: {id}...</p>
-//             {/* Detailed recipe information should be displayed here */}
-//         </div>
-//     );
-// }
-
-// export default RecipeItem;
-
 import React from 'react';
 import './RecipeItem.css';
+import { useLocation, useParams } from 'react-router-dom';
+import recipes from "./mock/recipes-list.js";
+
 
 function RecipeItem() {
+    // useParams();
+    const { id } = useParams();
+    const location = useLocation();
+    console.log(id);
+
+    const findRecipeById = (id) => {
+        // TODO to check if id resultingClientExists, >1 and a number
+        return recipes[id-1];
+    }
+
+    const currentRecipe = findRecipeById(id);
+
+    // TODO to read about useEffect, currectRecipe
   return (
+
+    <>
+<div>
+        {currentRecipe.name}
+    </div>
 
     <div className='RecipeItem'>
         <header>
@@ -30,17 +31,17 @@ function RecipeItem() {
         <p>Dinner by Sergio, for that special autumn sunny day 🍂</p>
     </header>
 
-    <section class="recipe-details">
-        <div class="servings">
+    <section className="recipe-details">
+        <div className="servings">
             <p>Servings: 4 people</p>
         </div>
-        <div class="time">
+        <div className="time">
             <p>Prep time: 20 min</p>
             <p>Cooking time: 2 to 3h</p>
         </div>
     </section>
 
-    <section class="ingredients">
+    <section className="ingredients">
         <h2>Ingredients:</h2>
         <ul>
             <li>500g of black beans, soaked overnight</li>
@@ -50,7 +51,7 @@ function RecipeItem() {
         </ul>
     </section>
 
-    <section class="instructions">
+    <section className="instructions">
         <h2>Instructions:</h2>
         <ol>
             <li>Soak the Beans: Soak the black beans in a large bowl of water overnight.</li>
@@ -59,7 +60,7 @@ function RecipeItem() {
         </ol>
     </section>
 
-    <section class="tips">
+    <section className="tips">
         <h2>Tips:</h2>
         <ul>
             <li>Adjust the types and amounts of meats according to your preference.</li>
@@ -68,6 +69,9 @@ function RecipeItem() {
         </ul>
     </section>
     </div>
+    </>
+
+    
     
   );
 }
