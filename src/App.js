@@ -1,5 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import RecipeItem from './RecipeItem';
 import './App.css';
 
 function App() {
@@ -17,21 +19,26 @@ function App() {
         </div>
 
       </header>
-
-      <main>
-          <div className="container">
-              <div className="tile" id="tile-1">
-                  <h2>Meal name</h2>
-                  <p>Краткое описание.</p>
-                </div>
-              
-              <div className="tile" id="tile-2">
-                  <h2>Meal name</h2>
-                  <p> Краткое описание.</p>
-              </div>
-              
-          </div>
-      </main>
+      <Router>
+        <main>
+            <div className="container">
+                <Link to="/recipe/1" className="tile" id="tile-1">
+                    <h2>Meal name</h2>
+                    <p>Краткое описание.</p>
+                  </Link>
+                
+                <Link to="/recipe/2" className="tile" id="tile-2">
+                    <h2>Meal name</h2>
+                    <p> Краткое описание.</p>
+                </Link>
+                
+            </div>
+        </main>
+      </Router>
+      
+      <Switch>
+        <Route path="/recipe/:id" children={<RecipeItem />} />
+      </Switch>
 
       <footer>
           <p>Marina Lajus © 2024</p>

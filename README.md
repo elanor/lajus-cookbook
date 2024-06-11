@@ -6,7 +6,7 @@ A cookbook with personal recipes is a web application built with React and style
 
 ## Getting Started
 
-###Features
+### Features
 
     Recipe Management: Add, edit, and delete recipes.
     Search and Filter: Easily search for recipes by name or ingredients and apply filters to narrow down results.
@@ -14,19 +14,19 @@ A cookbook with personal recipes is a web application built with React and style
     User Authentication: Secure login and registration system to manage personal recipe collections.
     Favorites: Mark recipes as favorites for quick access.
 
-###Technologies Used
+### Technologies Used
 
     React: A JavaScript library for building user interfaces.
     Tailwind CSS: A utility-first CSS framework for rapid UI development.
     Firebase: Backend as a service for authentication and data storage.
     React Router: For handling routing within the application.
 
-###Prerequisites
+### Prerequisites
 
     Node.js and npm installed on your machine.
     A Firebase account for authentication and database services.
     
-###Installation
+### Installation
 
 ```npm install```
 

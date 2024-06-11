@@ -1,0 +1,25 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: #f7f7f7;
+    color: #333;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+header h1 {
+    color: #006600;
+    font-size: 24px;
+}
+
+.ingredients ul, .instructions ol, .tips ul {
+    padding-left: 20px;
+}
+
+.ingredients li, .instructions li {
+    margin-bottom: 10px;
+}
+
+footer {
+    text-align: center;
+    padding-top: 20px;
+}
