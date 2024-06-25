@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Link, Routes, BrowserRouter } f
 import RecipeItem from './RecipeItem';
 import './App.css';
 import RecipeList from './RecipeList';
+import './index.css';
 
 function App() {
   return (
@@ -21,14 +22,12 @@ function App() {
 
       </header>
       
-        <main>
-            <div className="container">
+        <main className='container'>
+            {/* <div className="container"> */}
+              
             
               <BrowserRouter>
-              
 
-                
-      
                  <Routes>
                   <Route path="/recipe/:id" element={<RecipeItem />} />
                   <Route path="/" element={<RecipeList />} />
@@ -36,13 +35,8 @@ function App() {
       
                 </BrowserRouter>          
               
-            </div>
+            
         </main>
-      
-     
-      {/* <Switch>
-        
-      </Switch> */}
 
       <footer>
           <p>Marina Lajus © 2024</p>

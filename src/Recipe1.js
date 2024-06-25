@@ -5,12 +5,13 @@ function Recipe1() {
   return (
 
     <div className='RecipeItem'>
-        <header>
+        <img src='./assets/brazilian-feijoada-image.png' alt='image'></img>
+        <div>
         <h1>Brazilian Feijoada</h1>
         <p>Dinner by Sergio, for that special autumn sunny day 🍂</p>
-    </header>
+    </div>
 
-    <section class="recipe-details">
+    {/* <section class="recipe-details">
         <div class="servings">
             <p>Servings: 4 people</p>
         </div>
@@ -46,7 +47,7 @@ function Recipe1() {
             <li>Cooking times may vary depending on the type and age of the beans.</li>
             
         </ul>
-    </section>
+    </section> */}
     </div>
     
   );

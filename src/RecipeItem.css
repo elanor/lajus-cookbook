@@ -11,9 +11,68 @@ header h1 {
     font-size: 24px;
 }
 
+.recipe__container {
+    display: grid;
+    position: relative;
+    width: 100vw;
+    height: 100%;
+    grid-template-areas: "image"
+                        "title"
+                        "description"
+                        "servings"
+                        "ingredients instructions"
+                        "instructions tips";
+    
+    /* grid-template-columns: repeat(auto-fill, minmax(400px, 1fr)); */
+}
+
 .ingredients ul, .instructions ol, .tips ul {
     padding-left: 20px;
 }
+
+.instructions {
+    grid-area: instructions;
+    grid-column-start: 1;
+}
+
+.recipe__image {
+    grid-area: image;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    width: 100%;
+    height: 275px;
+    grid-column-start: 1;
+}
+
+.ingredients {
+    grid-area: ingredients;
+    grid-column-start: 1;
+}
+
+.servings {
+    grid-area: servings;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    grid-column-start: 1;
+}
+
+.recipe__title {
+    grid-area: title;
+    width: 100%;
+    grid-column-start: 1;
+}
+
+.recipe__description {
+    grid-area: description;
+    grid-column-start: 1;
+}
+
+.tips {
+    grid-area: tips;
+}
+
 
 .ingredients li, .instructions li {
     margin-bottom: 10px;

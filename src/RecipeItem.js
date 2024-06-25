@@ -11,65 +11,70 @@ function RecipeItem() {
     console.log(id);
 
     const findRecipeById = (id) => {
-        // TODO to check if id resultingClientExists, >1 and a number
-        return recipes[id-1];
+        const recipeId = parseInt(id, 10);
+        if (!recipeId) {
+            console.error('Invalid ID');
+            return null; // Return null or undefined if the ID is not valid
+        }
+        // Find the recipe by ID
+        const recipe = recipes.find(r => r.id === recipeId);
+        if (!recipe) {
+            console.error('Recipe not found');
+            return null; // Return null or undefined if no recipe is found
+        }
+        return recipe;
     }
 
     const currentRecipe = findRecipeById(id);
 
+    // Check if a recipe was found before trying to access its properties
+    if (!currentRecipe) {
+        return <div>Recipe not found</div>; // Render an error message or similar
+    }
+
     // TODO to read about useEffect, currectRecipe
   return (
 
-    <>
-<div>
-        {currentRecipe.name}
-    </div>
+    <div className='recipe__container'>
 
-    <div className='RecipeItem'>
-        <header>
-        <h1>Brazilian Feijoada</h1>
-        <p>Dinner by Sergio, for that special autumn sunny day 🍂</p>
-    </header>
+    
+        <img src={currentRecipe.image} alt='image' className="recipe__image"/>
+        
+        <h1 className='recipe__title'>{currentRecipe.name}</h1>
+        <div className='recipe__description'>{currentRecipe.description}</div>
+    
 
-    <section className="recipe-details">
-        <div className="servings">
-            <p>Servings: 4 people</p>
+        <div className="recipe__details servings">
+            
+            <p>Servings: {currentRecipe.servings}</p>
+            <p>Prep time: {currentRecipe.preptime}</p>
+            <p>Cooking time: {currentRecipe.cookingTime}</p>
+            
         </div>
-        <div className="time">
-            <p>Prep time: 20 min</p>
-            <p>Cooking time: 2 to 3h</p>
+
+        <div className="recipe__details ingredients">
+            {currentRecipe.ingredients_desc.split(",").map((ingredient, index) => (
+                <li key={index}>{ingredient.trim()}</li>
+            ))}
         </div>
-    </section>
 
-    <section className="ingredients">
-        <h2>Ingredients:</h2>
-        <ul>
-            <li>500g of black beans, soaked overnight</li>
-            <li>200g of pork shoulder, cut into chunks</li>
-            <li>100g of chorizo, sliced</li>
-            
-        </ul>
-    </section>
+        <div className="recipe__details instructions">
+            <h2>Instructions:</h2>
+            <ol>
+                {currentRecipe.instructions_desc.split(". ").map((step, index) => (
+                    <li key={index}>{step}</li>
+                ))}
+            </ol>
+        </div>
 
-    <section className="instructions">
-        <h2>Instructions:</h2>
-        <ol>
-            <li>Soak the Beans: Soak the black beans in a large bowl of water overnight.</li>
-            <li>Cook the Meats: In a large pot, heat the oil over medium heat. Add the bacon and cook until it starts to crisp. Then add the pork shoulder and chorizo.</li>
-            
-        </ol>
-    </section>
-
-    <section className="tips">
-        <h2>Tips:</h2>
-        <ul>
-            <li>Adjust the types and amounts of meats according to your preference.</li>
-            <li>Cooking times may vary depending on the type and age of the beans.</li>
-            
-        </ul>
-    </section>
+        <div className="recipe__details tips">
+            <h2>Tips:</h2>
+            <ul>
+                <li>{currentRecipe.tips}</li>
+            </ul>
+        </div>
+    
     </div>
-    </>
 
     
     
