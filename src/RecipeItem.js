@@ -1,38 +1,39 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './RecipeItem.css';
 import { useLocation, useParams } from 'react-router-dom';
 import recipes from "./mock/recipes-list.js";
 
 
 function RecipeItem() {
-    // useParams();
     const { id } = useParams();
     const location = useLocation();
     console.log(id);
+    const [currentRecipe, setCurrentRecipe] = useState(null);
 
-    const findRecipeById = (id) => {
-        const recipeId = parseInt(id, 10);
-        if (!recipeId) {
-            console.error('Invalid ID');
-            return null; // Return null or undefined if the ID is not valid
-        }
-        // Find the recipe by ID
-        const recipe = recipes.find(r => r.id === recipeId);
-        if (!recipe) {
-            console.error('Recipe not found');
-            return null; // Return null or undefined if no recipe is found
-        }
-        return recipe;
-    }
+    useEffect(() => {
+        const findRecipeById = (id) => {
+            const recipeId = parseInt(id, 10);
+            if (!recipeId) {
+                console.error('Invalid ID');
+                return null; // Return null or undefined if the ID is not valid
+            }
+            // Find the recipe by ID
+            const recipe = recipes.find(r => r.id === recipeId);
+            if (!recipe) {
+                console.error('Recipe not found');
+                return null; // Return null or undefined if no recipe is found
+            }
+            return recipe;
+        };
 
-    const currentRecipe = findRecipeById(id);
+        setCurrentRecipe(findRecipeById(id));
+    })
 
     // Check if a recipe was found before trying to access its properties
     if (!currentRecipe) {
         return <div>Recipe not found</div>; // Render an error message or similar
     }
 
-    // TODO to read about useEffect, currectRecipe
   return (
 
     <div className='recipe__container'>
@@ -45,11 +46,9 @@ function RecipeItem() {
     
 
         <div className="recipe__details servings">
-            
             <p>Servings: {currentRecipe.servings}</p>
             <p>Prep time: {currentRecipe.preptime}</p>
             <p>Cooking time: {currentRecipe.cookingTime}</p>
-            
         </div>
 
         <div className="recipe__details ingredients">
