@@ -1,3 +1,11 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body, html {
   margin: 0;
   padding: 0;
@@ -38,17 +46,36 @@ header {
 }
 
 .container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 10px;
+ 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   padding: 20px;
-  margin-top: 5rem;
+  justify-content: space-between;
+  margin-top: 2rem;
+  width: 100%;
 }
 
 .tile {
-  background-color: #e0e0e0;
-  padding: 20px;
+  background-color: #f0f0f0;
   border-radius: 8px;
+  display: block;
+  max-width: 350px;
+  margin-top: 2rem;
+}
+
+.tile__title {
+  background-color: teal;
+  color: white;
+  padding: 20px 24px 20px 24px;
+  margin: unset !important;
+  border-radius: inherit;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.tile__desc {
+  padding: 24px 24px 24px;
 }
 
 footer {

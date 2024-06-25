@@ -22,8 +22,8 @@ function App() {
 
       </header>
       
-        <main className='container'>
-            {/* <div className="container"> */}
+        <main>
+            <div className="container">
               
             
               <BrowserRouter>
@@ -34,7 +34,7 @@ function App() {
                 </Routes>
       
                 </BrowserRouter>          
-              
+              </div>
             
         </main>
 

@@ -52,9 +52,12 @@ function RecipeItem() {
         </div>
 
         <div className="recipe__details ingredients">
-            {currentRecipe.ingredients_desc.split(",").map((ingredient, index) => (
-                <li key={index}>{ingredient.trim()}</li>
-            ))}
+            <h2>Ingredients:</h2>
+                <ul>
+                    {currentRecipe.ingredients_desc.map((ingredient, index) => (
+                        <li key={index}>{ingredient}</li>
+                    ))}
+                </ul>
         </div>
 
         <div className="recipe__details instructions">
