@@ -2,7 +2,7 @@ const recipes = [
     {
         id: 1,
         name: "Brazilian Feijoada",
-        image: './assets/brazilan-feijoada-image.png',
+        image: "brazilan-feijoada-image.png",
         description: "Dinner by Sergio, for that special autumn sunny day",
         servings: "4 people",
         preptime: "20 min",

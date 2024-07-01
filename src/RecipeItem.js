@@ -4,13 +4,16 @@ import { useLocation, useParams } from 'react-router-dom';
 import recipes from "./mock/recipes-list.js";
 
 
+
 function RecipeItem() {
     const { id } = useParams();
     const location = useLocation();
     console.log(id);
     const [currentRecipe, setCurrentRecipe] = useState(null);
 
+
     useEffect(() => {
+        console.log("++")
         const findRecipeById = (id) => {
             const recipeId = parseInt(id, 10);
             if (!recipeId) {
@@ -27,7 +30,9 @@ function RecipeItem() {
         };
 
         setCurrentRecipe(findRecipeById(id));
-    })
+    },
+    []
+)
 
     // Check if a recipe was found before trying to access its properties
     if (!currentRecipe) {
@@ -36,49 +41,54 @@ function RecipeItem() {
 
   return (
 
+    <>
+    <img src={require(`./assets/${currentRecipe.image}`)}  alt='image' className="recipe__image"/>
     <div className='recipe__container'>
 
     
-        <img src={currentRecipe.image} alt='image' className="recipe__image"/>
-        
-        <h1 className='recipe__title'>{currentRecipe.name}</h1>
-        <div className='recipe__description'>{currentRecipe.description}</div>
-    
+{/* <img src={require(`./assets/${currentRecipe.image}`)}  alt='image' className="recipe__image"/> */}
 
-        <div className="recipe__details servings">
+        <h1 className='recipe__title'>{currentRecipe.name}</h1>
+        <h5 className='recipe__description'>{currentRecipe.description}</h5>
+
+
+        <div className="servings">
             <p>Servings: {currentRecipe.servings}</p>
             <p>Prep time: {currentRecipe.preptime}</p>
             <p>Cooking time: {currentRecipe.cookingTime}</p>
         </div>
 
-        <div className="recipe__details ingredients">
-            <h2>Ingredients:</h2>
-                <ul>
-                    {currentRecipe.ingredients_desc.map((ingredient, index) => (
-                        <li key={index}>{ingredient}</li>
+        <div className="recipe__details">
+            <div className="ingredients">
+                <h2>Ingredients:</h2>
+                    <ul>
+                        {currentRecipe.ingredients_desc.map((ingredient, index) => (
+                            <li key={index}>{ingredient}</li>
+                        ))}
+                    </ul>
+            </div>
+
+            <div className="instructions">
+                <h2>Instructions:</h2>
+                <ol>
+                    {currentRecipe.instructions_desc.split(". ").map((step, index) => (
+                        <li key={index}>{step}</li>
                     ))}
+                </ol>
+            </div>
+
+            <div className="tips">
+                <h2>Tips:</h2>
+                <ul>
+                    <li>{currentRecipe.tips}</li>
                 </ul>
+            </div>
         </div>
 
-        <div className="recipe__details instructions">
-            <h2>Instructions:</h2>
-            <ol>
-                {currentRecipe.instructions_desc.split(". ").map((step, index) => (
-                    <li key={index}>{step}</li>
-                ))}
-            </ol>
-        </div>
 
-        <div className="recipe__details tips">
-            <h2>Tips:</h2>
-            <ul>
-                <li>{currentRecipe.tips}</li>
-            </ul>
-        </div>
-    
-    </div>
 
-    
+</div>
+    </>   
     
   );
 }
