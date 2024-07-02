@@ -7,19 +7,13 @@ import RecipeList from './RecipeList';
 import './index.css';
 import NewRecipe from './NewRecipe';
 
-// const [recipes, setRecipes] = useState([...]); // your initial recipes array
-
-//   const addRecipe = (newRecipe) => {
-//     setRecipes([...recipes, { ...newRecipe, id: recipes.length + 1 }]);
-//   };
-
 function App() {
 const [isOpenNewRecipe, setIsOpenNewRecipe] = useState( false );
 
-  const openNewRecipe = () => {
-    console.log("click");
-    setIsOpenNewRecipe ( true );
-  }
+  // const openNewRecipe = () => {
+  //   console.log("click");
+  //   setIsOpenNewRecipe ( true );
+  // }
 
   return (
     <BrowserRouter>
@@ -42,18 +36,13 @@ const [isOpenNewRecipe, setIsOpenNewRecipe] = useState( false );
       
         <main>
       
-            <div className="container-wide">
-            {/* <div className='container-wide inline-grid gap-10 grid-cols-3'> */}
-            
-
+            <div className="container-wide"> 
 
                  <Routes>
                   <Route path="/recipe/:id" element={<RecipeItem />} />
                   <Route path="/" element={<RecipeList />} />
                 </Routes>
        
-
-                {/* <NewRecipe addRecipe={addRecipe} />   */}
               </div>
             
         </main>

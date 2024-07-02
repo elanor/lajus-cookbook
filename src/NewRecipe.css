@@ -1,0 +1,14 @@
+.new-recipe-form {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.new-recipe-form__close {
+    align-self: flex-end;
+    width: 100%;
+}
+
+.new-recipe-form__content {
+    justify-content: center;
+}

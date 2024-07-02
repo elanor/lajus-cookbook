@@ -34,7 +34,15 @@ function NewRecipe({ addRecipe }) {
         };
 
     return(
-        <form onSubmit={handleSubmit}>
+        <div className="new-recipe-form">
+        <button className="new-recipe-form__close close-btn"
+            popovertarget="opennewrecipe"
+            popovertargetaction="hide">
+                <span aria-hidden="true">X</span>
+                <span className="sr-only">Close</span>
+
+        </button>
+        <form className="new-recipe-form__content" onSubmit={handleSubmit}>
             <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Recipe Name" />
             <input type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image URL" />
             <textarea name="description" value={formData.description} onChange={handleChange} placeholder="Description" />
@@ -46,6 +54,8 @@ function NewRecipe({ addRecipe }) {
             <textarea name="tips" value={formData.tips.join(', ')} onChange={(e) => handleArrayChange(e, 'tips')} placeholder="Tips (comma separated)" />
             <button type="submit">Add Recipe</button>
         </form>
+        </div>
+        
     )
 
 }
