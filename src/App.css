@@ -20,6 +20,12 @@ body, html {
   min-height: 100vh;
 }
 
+.App {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -36,6 +42,7 @@ header {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  z-index: 10;
 }
 
 .header__menu { 
@@ -99,12 +106,35 @@ header {
 }
 
 footer {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   text-align: center;
   padding: 20px;
   background-color: #f0f0f0;
   width: 100%;
   flex-shrink: 0;
+}
+
+.new-recipe__popover {
+  z-index: 1000;
+}
+
+.new-recipe {
+  /* display: none; */
+}
+
+.new-recipe:popover-open {
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  width: 500px;
+  height: 300px;
+  padding: 0 10px;
+  border-radius: 10px;
+  border-color: black;
+}
+
+.new-recipe::backdrop {
+  background: url("https://mdn.github.io/dom-examples/popover-api/blur-background/tile.png");
+  opacity: 60%;
 }
