@@ -22,3 +22,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+ul, .tips {
+  list-style: initial;
+}
+
+ol {
+  list-style: decimal;
+}

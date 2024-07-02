@@ -6,6 +6,12 @@ import './App.css';
 import RecipeList from './RecipeList';
 import './index.css';
 
+function AddRecipe() {
+  return (
+    <div id="newrecipepopover" popover>Popover content</div>
+  )
+}
+
 function App() {
   return (
     <div className="App">
@@ -16,7 +22,7 @@ function App() {
           </div>
 
           <div className='header__menu'>
-            <div className='header__menu-item'><a href="#new-project">Новый рецепт</a></div>
+            <button className='header__menu-item' popovertarget="newrecipepopover">Новый рецепт</button>
             <div className='header__menu-item'><a href="#all-projects">Все рецепты</a></div>
         </div>
 
@@ -24,9 +30,10 @@ function App() {
       
         <main>
       
-            <div className="container">
-              
+            <div className="container-wide">
+            {/* <div className='container-wide inline-grid gap-10 grid-cols-3'> */}
             
+
               <BrowserRouter>
 
                  <Routes>

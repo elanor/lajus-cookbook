@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './RecipeItem.css';
 import { useLocation, useParams } from 'react-router-dom';
 import recipes from "./mock/recipes-list.js";
+import { index } from 'langchain/indexes';
 
 
 
@@ -43,7 +44,7 @@ function RecipeItem() {
 
     <>
     <img src={require(`./assets/${currentRecipe.image}`)}  alt='image' className="recipe__image"/>
-    <div className='recipe__container'>
+    <div className='container recipe__container'>
 
     
 {/* <img src={require(`./assets/${currentRecipe.image}`)}  alt='image' className="recipe__image"/> */}
@@ -53,34 +54,40 @@ function RecipeItem() {
 
 
         <div className="servings">
-            <p>Servings: {currentRecipe.servings}</p>
-            <p>Prep time: {currentRecipe.preptime}</p>
-            <p>Cooking time: {currentRecipe.cookingTime}</p>
+            <h3><strong>Servings:</strong> {currentRecipe.servings}</h3>
+            <h3><strong>Prep time:</strong> {currentRecipe.preptime}</h3>
+            <h3><strong>Cooking time:</strong> {currentRecipe.cookingTime}</h3>
         </div>
 
         <div className="recipe__details">
             <div className="ingredients">
-                <h2>Ingredients:</h2>
-                    <ul>
-                        {currentRecipe.ingredients_desc.map((ingredient, index) => (
-                            <li key={index}>{ingredient}</li>
-                        ))}
-                    </ul>
+                <h2><strong>Ingredients:</strong></h2>
+                <div className="ingredients__desc">
+                    {currentRecipe.ingredients_desc.map((ingredient, index) => (
+                        <>
+                            <input type="checkbox" id="ingredient" name="ingredient" key={index}/>
+                            <label for="ingredient"> {ingredient}</label><br/>
+                        </>
+                    ))}
+                </div>
             </div>
 
             <div className="instructions">
-                <h2>Instructions:</h2>
+                <h2><strong>Instructions:</strong></h2>
                 <ol>
-                    {currentRecipe.instructions_desc.split(". ").map((step, index) => (
+                    {currentRecipe.instructions_desc.map((step, index) => (
                         <li key={index}>{step}</li>
                     ))}
                 </ol>
             </div>
 
             <div className="tips">
-                <h2>Tips:</h2>
+                <h5><strong>Tips: </strong></h5>
                 <ul>
-                    <li>{currentRecipe.tips}</li>
+                    {currentRecipe.tips.map((step, index) => (
+                        <li key={index}>{step}</li>
+                    ))}
+                    
                 </ul>
             </div>
         </div>
