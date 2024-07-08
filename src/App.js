@@ -18,7 +18,7 @@ const [isOpenNewRecipe, setIsOpenNewRecipe] = useState( false );
   return (
     <BrowserRouter>
     <div className="App">
-        <header>
+        <header className='hover:bg-sky-700'>
         
           <div className='header__menu'>
           
