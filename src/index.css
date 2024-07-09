@@ -12,10 +12,10 @@ body {
 }
 
 main {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: center;
+  align-items: center; */
   flex-grow: 1;
 }
 
@@ -31,3 +31,5 @@ ul, .tips {
 ol {
   list-style: decimal;
 }
+
+

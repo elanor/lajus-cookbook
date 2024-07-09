@@ -1,6 +1,7 @@
 import recipes from "./mock/recipes-list.js";
 import React, {useState} from "react";
 import './index.css';
+import './NewRecipe.css';
 
 function NewRecipe({ addRecipe }) {
 
@@ -75,15 +76,7 @@ function NewRecipe({ addRecipe }) {
         };
 
     return(
-        <div className="new-recipe-form p-6 bg-white shadow-md rounded-lg flex justify-end flex-col self-end">
-        
-        <button className="new-recipe-form__close close-btn"
-                popovertarget="opennewrecipe"
-                popovertargetaction="hide">
-            <span className="text-2xl">&times;</span>
-            <span className="sr-only">Close</span>
-
-        </button>
+        <div className="new-recipe-form p-6 bg-white shadow-md rounded-lg flex justify-end flex-col">
 
         <div className="flex p-6">
             <form className="new-recipe-form__content space-y-4" onSubmit={handleSubmit}>
@@ -111,7 +104,7 @@ function NewRecipe({ addRecipe }) {
                 <textarea name="description" value={formData.description} onChange={handleChange} placeholder="Description" className="w-full px-4 py-2 border rounded"/>
                 <div className="grid gap-2 grid-cols-3">
                     <input type="text" name="servings" value={formData.servings} onChange={handleChange} placeholder="Servings" className="w-full px-4 py-2 border rounded"/>
-                    <select name="preptime" value={formData.preptime} onChange={handleChange} className="w-full pl-4 pr-6 py-2 border rounded">
+                    <select name="preptime" value={formData.preptime} onChange={handleChange} className="w-full pl-4 pr-6 py-2 border rounded new-recipe-form__select">
                         <option value="5 min">5 min</option>
                         <option value="10 min">10 min</option>
                         <option value="15 min">15 min</option>

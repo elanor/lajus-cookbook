@@ -53,7 +53,16 @@ const [isOpenNewRecipe, setIsOpenNewRecipe] = useState( false );
     </div>
 
     {/* {isOpenNewRecipe? <NewRecipe className="new-recipe__popover" /> : null } */}
-    <div id="opennewrecipe" popover="" className="new-recipe"><NewRecipe /></div>
+    <div id="opennewrecipe" popover="" className="new-recipe">
+        <button className="new-recipe-form__close close-btn"
+                    popovertarget="opennewrecipe"
+                    popovertargetaction="hide">
+                <span className="text-2xl">&times;</span>
+                <span className="sr-only">Close</span>
+
+        </button>
+      <NewRecipe />
+    </div>
     
 
     
