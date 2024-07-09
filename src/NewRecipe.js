@@ -122,7 +122,7 @@ function NewRecipe({ addRecipe }) {
 
                 {['ingredients_desc', 'instructions_desc', 'tips'].map(listName => (
                      <div key={listName}>
-                     <h3 className="font-bold text-lg">{listName.replace('_', ' ').toUpperCase()}</h3>
+                     <h3 className="font-bold text-lg">{listName.split('_')[0].charAt(0).toUpperCase() + listName.split('_')[0].slice(1)}</h3>
                      <ol className="list-decimal list-inside">
                          {formData[listName].map((item, index) => (
                              <li key={index} className="flex justify-between items-center">
@@ -140,7 +140,7 @@ function NewRecipe({ addRecipe }) {
                  </div>
                 ))}
 
-                <button type="submit">Add Recipe</button>
+                <button type="submit" className="button button__primary">Add Recipe</button>
             </form>
         </div>
         
