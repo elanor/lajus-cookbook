@@ -88,8 +88,6 @@ function NewRecipe({ addRecipe }) {
         <div className="flex p-6">
             <form className="new-recipe-form__content space-y-4" onSubmit={handleSubmit}>
 
-                {/* <input type="text" name="image" value={formData.image} onChange={handleChange} placeholder="Image URL" className="w-full px-4 py-2 border rounded"/> */}
-
                 <div className="flex flex-col items-center justify-end">
                     <img src={formData.image} alt="Recipe" className="mb-4 w-full bg-contain h-32 object-cover rounded" />
                     <input
@@ -113,7 +111,17 @@ function NewRecipe({ addRecipe }) {
                 <textarea name="description" value={formData.description} onChange={handleChange} placeholder="Description" className="w-full px-4 py-2 border rounded"/>
                 <div className="grid gap-2 grid-cols-3">
                     <input type="text" name="servings" value={formData.servings} onChange={handleChange} placeholder="Servings" className="w-full px-4 py-2 border rounded"/>
-                    <input type="text" name="preptime" value={formData.preptime} onChange={handleChange} placeholder="Preparation Time" className="w-full px-4 py-2 border rounded"/>
+                    <select name="preptime" value={formData.preptime} onChange={handleChange} className="w-full pl-4 pr-6 py-2 border rounded">
+                        <option value="5 min">5 min</option>
+                        <option value="10 min">10 min</option>
+                        <option value="15 min">15 min</option>
+                        <option value="30 min">30 min</option>
+                        <option value="45 min">45 min</option>
+                        <option value="1 hour">1 hour</option>
+                        <option value="1.5 hours">1.5 hours</option>
+                        <option value="2 hours">2 hours</option>
+                        <option value="more than 2 hours">more than 2 hours</option>
+                    </select>
                     <input type="text" name="cookingTime" value={formData.cookingTime} onChange={handleChange} placeholder="Cooking Time" className="w-full px-4 py-2 border rounded"/>
                 </div>
                 {/* <textarea name="ingredients_desc" value={formData.ingredients_desc.join(', ')} onChange={(e) => handleArrayChange(e, 'ingredients_desc')} placeholder="Ingredients (comma separated)" />

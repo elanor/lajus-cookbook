@@ -1,3 +1,15 @@
+@keyframes fly-in {
+    from {
+        opacity: 0;
+        transform: translateX(-80px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
 body {
     font-family: 'Arial', sans-serif;
     background: #f7f7f7;
@@ -28,6 +40,24 @@ h5 {
                         "servings "
                         "details "
                         ;
+}
+
+/* .servings>*, .tips, .instructions>ol>li, .ingredients {
+    animation: appear linear both;
+    animation-timeline: view();
+    animation-range: entry 0 cover 25%;
+} */
+
+.ingredients, .tips {
+    animation: appear linear both;
+    animation-timeline: view();
+    animation-range: entry 0 cover 25%;
+}
+
+.instructions>ol>li {
+    animation: fly-in auto linear;
+    animation-timeline: view();
+    animation-range: entry 0 cover 50%;
 }
 
 .ingredients ul, .instructions ol, .tips ul, .ingredients__desc {
@@ -62,18 +92,6 @@ h5 {
     padding-top: 2rem;
 }
 
-@keyframes fly-in {
-    from {
-        opacity: 0;
-        transform: translateX(-80px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateX(0px);
-    }
-}
-
 .recipe__title {
     grid-area: title;
     width: 100%;
@@ -97,10 +115,6 @@ h5 {
 
 .tips {
     grid-area: tips;
-
-    animation: fly-in auto linear;
-    animation-timeline: view();
-    animation-range: entry 0 cover 50%;
 }
 
 .recipe__details {
