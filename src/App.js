@@ -20,7 +20,7 @@ const [isOpenNewRecipe, setIsOpenNewRecipe] = useState( false );
     <div className="App">
         <header className='hover:bg-sky-700'>
         
-          <div className='header__menu'>
+          <div className='header__menu mobile:text-sm'>
           
             <NavLink className='header__menu-item' to="/">LajusCook</NavLink>
           

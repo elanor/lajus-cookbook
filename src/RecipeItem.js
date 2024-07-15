@@ -44,22 +44,22 @@ function RecipeItem() {
 
     <>
     <img src={require(`./assets/${currentRecipe.image}`)}  alt='image' className="recipe__image"/>
-    <div className='container recipe__container'>
+    <div className='container recipe__container tablet:px-12 mobile:px-6'>
 
     
 {/* <img src={require(`./assets/${currentRecipe.image}`)}  alt='image' className="recipe__image"/> */}
 
-        <h1 className='recipe__title'>{currentRecipe.name}</h1>
-        <h5 className='recipe__description'>{currentRecipe.description}</h5>
+        <h1 className='recipe__title tablet:text-5xl tablet:leading-10 mobile:text-4xl'>{currentRecipe.name}</h1>
+        <h5 className='recipe__description tablet:leading-7 tablet:mt-4 mobile:text-xl mobile:mt-4 mobile:leading-5'>{currentRecipe.description}</h5>
 
 
-        <div className="servings">
+        <div className="servings flex justify-between pt-8 mobile:flex-col">
             <h3><strong>Servings:</strong> {currentRecipe.servings}</h3>
             <h3><strong>Prep time:</strong> {currentRecipe.preptime}</h3>
             <h3><strong>Cooking time:</strong> {currentRecipe.cookingTime}</h3>
         </div>
 
-        <div className="recipe__details">
+        <div className="recipe__details tablet:columns-1">
             <div className="ingredients">
                 <h2><strong>Ingredients:</strong></h2>
                 <div className="ingredients__desc">
