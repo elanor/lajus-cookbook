@@ -5,7 +5,7 @@ import recipes from './mock/recipes-list';
 function RecipeList() {
   return (
     // <div className='inline-grid gap-10 grid-cols-3 tablet:grid-cols-2 mobile:grid-cols-1'>
-    <div className='grid gap-10 grid-flow-row grid-cols-autoFit grow'>
+    <div className='grid gap-6 grid-flow-row grid-cols-autoFit grow mobile:items-center'>
                 {recipes.map((recipe) => (
                 <Link to={`/recipe/${recipe.id}`} className="tile m-4" key={recipe.id}>
                     <h2 className='tile__title'>{recipe.name}</h2>

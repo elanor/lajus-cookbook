@@ -36,11 +36,11 @@ const [isOpenNewRecipe, setIsOpenNewRecipe] = useState( false );
       
         <main>
       
-            <div className="container-wide"> 
+            <div className="container-wide px-8"> 
 
                  <Routes>
                   <Route path="/recipe/:id" element={<RecipeItem />} />
-                  <Route path="/" element={<RecipeList />} />
+                  <Route path="/" element={<RecipeList />}/>
                 </Routes>
        
               </div>

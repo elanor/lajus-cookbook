@@ -49,8 +49,8 @@ function RecipeItem() {
     
 {/* <img src={require(`./assets/${currentRecipe.image}`)}  alt='image' className="recipe__image"/> */}
 
-        <h1 className='recipe__title tablet:text-5xl tablet:leading-10 mobile:text-4xl'>{currentRecipe.name}</h1>
-        <h5 className='recipe__description tablet:leading-7 tablet:mt-4 mobile:text-xl mobile:mt-4 mobile:leading-5'>{currentRecipe.description}</h5>
+        <h1 className='recipe__title flex justify-center text-5xl font-extrabold tablet:font-bold tablet:text-5xl tablet:leading-none mobile:text-4xl'>{currentRecipe.name}</h1>
+        <h5 className='recipe__description flex justify-center text-xl mt-8 tablet:leading-7 tablet:mt-6 mobile:text-xl mobile:mt-4 mobile:leading-5'>{currentRecipe.description}</h5>
 
 
         <div className="servings flex justify-between pt-8 mobile:flex-col">
