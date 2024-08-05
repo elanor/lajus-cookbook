@@ -8,12 +8,16 @@ import './index.css';
 import NewRecipe from './NewRecipe';
 
 function App() {
-const [isOpenNewRecipe, setIsOpenNewRecipe] = useState( false );
+// const [isOpenNewRecipe, setIsOpenNewRecipe] = useState( false );
 
-  // const openNewRecipe = () => {
-  //   console.log("click");
-  //   setIsOpenNewRecipe ( true );
-  // }
+  //State to hold the list of recipes
+  const [recipes, setRecipes] = useState([]);
+
+  // Function to add a new recipe to the state
+  const addRecipe = (newRecipe) => {
+    setRecipes((prevRecipes) => [...prevRecipes, newRecipe]);
+    document.getElementById('opennewrecipe').hidePopover();
+  };
 
   return (
     <BrowserRouter>
@@ -61,7 +65,9 @@ const [isOpenNewRecipe, setIsOpenNewRecipe] = useState( false );
                 <span className="sr-only">Close</span>
 
         </button>
-      <NewRecipe />
+        
+        <NewRecipe addRecipe={addRecipe}/>
+        
     </div>
     
 
